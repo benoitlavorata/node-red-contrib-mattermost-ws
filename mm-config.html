@@ -1,0 +1,54 @@
+<script type="text/javascript">
+    RED.nodes.registerType('mm-config', {
+        category: 'config',
+        defaults: {
+            name: { value: "", required: true },
+            url: { value: "", required: true },
+            team: { value: "", required: true },
+            username: { value: "", required: true },
+            password: { value: "", required: true },
+            wssPort: { value: 443, required: true },
+            httpPort: { value: 443, required: true },
+            defaultChannel: { value: "town-square", required: true }
+        },
+        label: function() {
+            return this.name;
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="mm-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-user"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-url"><i class="fa fa-globe"></i> Domain</label>
+        <input type="text" id="node-config-input-url">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-team"><i class="fa fa-key"></i> Team</label>
+        <input type="text" id="node-config-input-team">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-defaultChannel"><i class="fa fa-user"></i> Default Channel</label>
+        <input type="text" id="node-config-input-defaultChannel">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-username"><i class="fa fa-user"></i> Username</label>
+        <input type="text" id="node-config-input-username">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-password"><i class="fa fa-lock"></i> Password</label>
+        <input type="text" id="node-config-input-password">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-wssPort"><i class="fa fa-user"></i> WS Port</label>
+        <input type="text" id="node-config-input-wssPort">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-httpPort"><i class="fa fa-user"></i> HTTP Port</label>
+        <input type="text" id="node-config-input-httpPort">
+    </div>
+</script>
+</script>

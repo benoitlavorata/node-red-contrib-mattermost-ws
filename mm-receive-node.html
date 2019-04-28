@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    RED.nodes.registerType('mm-receive', {
+        category: "mattermost",
+        defaults: {
+            name: { value: "Mattermost" },
+            host: { value: "", type: "mm-config" }
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "white-globe.png",
+        color: "#a6bbcf",
+        label: function() {
+            return (this.name || "mm-receive")
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="mm-receive">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-host"><i class="icon-bookmark"></i> Host</label>
+        <input type="text" id="node-input-host">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="mm-receive">
+    <p>Sends messages when it reads one in mm</p>
+</script>

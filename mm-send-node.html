@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    RED.nodes.registerType('mm-send', {
+        category: "mattermost",
+        defaults: {
+            name: { value: "Mattermost" },
+            host: { value: "", type: "mm-config" }
+        },
+        inputs: 1,
+        outputs: 0,
+        icon: "white-globe.png",
+        color: "#a6bbcf",
+        label: function() {
+            return (this.name || "mm-send")
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="mm-send">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-host"><i class="icon-bookmark"></i> Host</label>
+        <input type="text" id="node-input-host">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="mm-send">
+    <p>Make sure to provide a msg.channel which contains the name of channel or user.</p>
+</script>

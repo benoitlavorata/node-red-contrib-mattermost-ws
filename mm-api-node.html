@@ -1,0 +1,41 @@
+<script type="text/javascript">
+    RED.nodes.registerType('mm-api', {
+        category: "mattermost",
+        defaults: {
+            name: { value: "Mattermost API" },
+            host: { value: "", type: "mm-config" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "white-globe.png",
+        color: "#a6bbcf",
+        label: function() {
+            return (this.name || "mm-api")
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="mm-api">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-host"><i class="icon-bookmark"></i> Host</label>
+        <input type="text" id="node-input-host">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="mm-client">
+    <p>clients any methods detailed in mm api. Takes into argument a msg with 2 properties: method and args.</p>
+    <p>You can use variable $SESSION which will be replaced by the client session you set on config.</p>
+    <code>
+        msg = {
+            method:  'mm.product.get',
+            args:  {
+                    'fields': 'outer_id',
+                    'product_id': 123456
+                }
+        }
+    </code>
+</script>
