@@ -1,7 +1,7 @@
 module.exports = function (RED) {
 
     const fs = require('fs');
-    const moment = require('moment');
+    //const moment = require('moment');
     const fetch = require('fetch-base64');
     const Client = require('./lib/client.js');
 
