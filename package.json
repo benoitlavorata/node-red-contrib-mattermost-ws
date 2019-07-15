@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://gitlab.com/benoit.lavorata/node-red-contrib-mattermost-ws.git"
   },
+  "keywords": ["node-red"],
   "node-red": {
     "nodes": {
       "mm-config": "mm-config.js",
