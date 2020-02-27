@@ -92,7 +92,7 @@ module.exports = function (RED) {
             if (!msg.payload)
                 return handle_error(new Error("No payload provided"), node);
 
-            var channelName = msg.channel ? msg.channel : node.defaultChannel;
+            var channelName = msg.channel ? msg.channel : node.host.defaultChannel;
 
             // try by id
             if (node.host.client.channels[channelName])
