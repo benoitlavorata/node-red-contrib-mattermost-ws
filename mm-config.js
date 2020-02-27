@@ -3,7 +3,7 @@ module.exports = function (RED) {
     const fs = require('fs');
     //const moment = require('moment');
     const fetch = require('fetch-base64');
-    const Client = require('./lib/client.js');
+    const Client = require('mattermost-client');
 
     function MMConfigNode(n) {
         RED.nodes.createNode(this, n);
@@ -11,8 +11,6 @@ module.exports = function (RED) {
         node.name = n.name;
         node.url = n.url;
         node.team = n.team;
-        node.username = n.username;
-        node.password = n.password;
         node.wssPort = n.wssPort;
         node.httpPort = n.httpPort;
         node.defaultChannel = n.defaultChannel;
@@ -36,10 +34,16 @@ module.exports = function (RED) {
                         httpPort: node.httpPort
                     }
                 );
-                node.client.login(
-                    node.username,
-                    node.password
-                );
+                if (node.credentials.username && node.credentials.password) {
+                    node.client.login(
+                        node.credentials.username,
+                        node.credentials.password
+                    );
+                } else if (node.credentials.access_token) {
+                    node.client.tokenLogin(
+                        node.credentials.access_token
+                    );
+                };
             }
 
             node.client.getUserByUsername = function (username) {
@@ -115,5 +119,11 @@ module.exports = function (RED) {
 
         node.createClient();
     }
-    RED.nodes.registerType("mm-config", MMConfigNode);
+    RED.nodes.registerType("mm-config", MMConfigNode,{
+        credentials: {
+            username: {type: 'text'},
+            password: {type: 'password'},
+            access_token: {type: 'password'}
+        }
+    });
 }
